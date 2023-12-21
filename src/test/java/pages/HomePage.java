@@ -1,7 +1,6 @@
 package pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,37 +20,44 @@ public class HomePage {
 	By ProductItemDescriptionsList = By.cssSelector("[data-testid=\"itemDescription\"]");
 	
 	//Method to enter search criteria
-	public void EnterProductSearchCriteria(String criteria) {
+	public void EnterProductSearchCriteria(String criteria) 
+	{
 		driver.findElement(SearchStoreEditBox).sendKeys(criteria);
 	}
 	
 	//Method to click the search button
-	public void ClickSearchStoreButton() {
+	public void ClickSearchStoreButton() 
+	{
 		driver.findElement(SearchStoreButton).click();
 	}
 	
 	//Method to get the last product item description
-	public WebElement GetLastProductItemDescription() {
+	public WebElement GetLastProductItemDescription() 
+	{
 		return driver.findElement(LastProductItemDescription);
 	}
 	
 	//Method to add the last product item in the list to the cart
-	public void AddLastItemToCart() {
+	public void AddLastItemToCart() 
+	{
 		driver.findElement(LastAddToCartButton).click();
 	}
 	
 	//Method to get the cart item count
-	public WebElement GetCartItemCount() {
+	public WebElement GetCartItemCount() 
+	{
 		return driver.findElement(CartItemCount);
 	}
 	
 	//Method to click the add to cart button
-	public void ViewCart() {
+	public void ViewCart() 
+	{
 		driver.findElement(ViewCartButton).click();
 	}
 	
 	//Method to get the list of product descriptions
-	public List<WebElement> GetProductItemDescriptionsList() {
+	public List<WebElement> GetProductItemDescriptionsList() 
+	{
 		return (List<WebElement>) driver.findElements(ProductItemDescriptionsList);
 	}
 	

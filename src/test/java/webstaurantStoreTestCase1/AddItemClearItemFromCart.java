@@ -31,13 +31,16 @@ public class AddItemClearItemFromCart {
 		List<WebElement> ItemDescription = HomePage.GetProductItemDescriptionsList();
 		Iterator<WebElement> ItemDescriptionIterator = ItemDescription.iterator();
 		int counter = 0;
-		while(ItemDescriptionIterator.hasNext()) {
-			if (ItemDescriptionIterator.next().getText().contains(hashMap.get("ProductDescriptionSearchCriteria"))) {
+		while(ItemDescriptionIterator.hasNext()) 
+		{
+			if (ItemDescriptionIterator.next().getText().contains(hashMap.get("ProductDescriptionSearchCriteria"))) 
+			{
 				counter = counter + 1;
 		    	System.out.println("PASS: Table was found in the title for item number " + counter);
 			}
 			else 
-			{	counter = counter + 1;
+			{	
+				counter = counter + 1;
 				System.out.println("FAIL: Table was not found in the title for item number " + counter);
 			}
 		}
