@@ -2,23 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-21T17:15:23 EST" name="Default suite" finished-at="2023-12-21T17:15:52 EST" duration-ms="29607">
+  <suite started-at="2024-01-02T12:21:03 EST" name="Default suite" finished-at="2024-01-02T12:21:35 EST" duration-ms="32038">
     <groups>
     </groups>
-    <test started-at="2023-12-21T17:15:23 EST" name="Default test" finished-at="2023-12-21T17:15:52 EST" duration-ms="29607">
-      <class name="webstaurantStoreTestCase1.AddItemClearItemFromCart">
-        <test-method signature="TestScenario(java.util.HashMap)[pri:0, instance:webstaurantStoreTestCase1.AddItemClearItemFromCart@428640fa]" started-at="2023-12-21T17:15:23 EST" name="TestScenario" data-provider="dataProvider" finished-at="2023-12-21T17:15:52 EST" duration-ms="29544" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ProductDescriptionSearchCriteria=Table, ExpectedNumberOfItemsInCart=1, SiteURL=https://webstaurantstore.com/, ProductSearchCriteria=stainless work table}]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2024-01-02T12:21:03 EST" name="Default test" finished-at="2024-01-02T12:21:35 EST" duration-ms="32038">
+      <class name="webstaurantStoreTestCase1.AddItemClearItemFromCart2">
+        <test-method signature="TestScenario()[pri:0, instance:webstaurantStoreTestCase1.AddItemClearItemFromCart2@428640fa]" started-at="2024-01-02T12:21:03 EST" name="TestScenario" finished-at="2024-01-02T12:21:35 EST" duration-ms="31987" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestScenario -->
-      </class> <!-- webstaurantStoreTestCase1.AddItemClearItemFromCart -->
+      </class> <!-- webstaurantStoreTestCase1.AddItemClearItemFromCart2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

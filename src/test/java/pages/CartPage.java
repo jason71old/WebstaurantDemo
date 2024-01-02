@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class CartPage {
+public class CartPage 
+{
 	WebDriver driver;
 	public CartPage(WebDriver driver) 
 	{
@@ -30,7 +31,7 @@ public class CartPage {
 	//Method to get the the cart is empty message
 	public WebElement GetCartIsEmptyMessage() 
 	{
-			return driver.findElement(CartIsEmptyMessage);
+		return driver.findElement(CartIsEmptyMessage);
 	}
 
 }

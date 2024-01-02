@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="webstaurantStoreTestCase1.AddItemClearItemFromCart">
+      <class name="webstaurantStoreTestCase1.AddItemClearItemFromCart2">
         <methods>
           <include name="TestScenario"/>
         </methods>
-      </class> <!-- webstaurantStoreTestCase1.AddItemClearItemFromCart -->
+      </class> <!-- webstaurantStoreTestCase1.AddItemClearItemFromCart2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
