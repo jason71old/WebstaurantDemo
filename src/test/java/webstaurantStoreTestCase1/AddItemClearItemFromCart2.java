@@ -10,22 +10,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.RespositoryParser;
+import utilities.ExcelUtilities;
 
-//This configuration is using .properties file for object storage
+//This configuration is using .properties file for object storage and apache poi with excel for the test run data
 
 public class AddItemClearItemFromCart2 {
+	
 	@Test
 	public void TestScenario() throws InterruptedException, IOException 
 	{
+		ExcelUtilities excelUtils = new ExcelUtilities();
+		String excelFilePath = "src/test/resources/AddItemClearitemFromCartData.xlsx";
+		
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		//Get the object repository
 		RespositoryParser parser = new RespositoryParser("src/test/resources/ObjectRepo.properties");
+		//Get the test run data
+		excelUtils.setExcelFile(excelFilePath,"Sheet1");
 		//Open WebstaurantStore site
-		driver.get("https://webstaurantstore.com/");
+		//driver.get("https://webstaurantstore.com/");
+		driver.get(excelUtils.getCellData(1,0));
 		driver.manage().window().maximize();
 		//Search for product
 		WebElement SearchStoreEditBox = driver.findElement(parser.getobjectLocator("SearchStoreEditBox"));
-		SearchStoreEditBox.sendKeys("stainless work table");
+		SearchStoreEditBox.sendKeys(excelUtils.getCellData(1,1));
 		WebElement SearchStoreButton = driver.findElement(parser.getobjectLocator("SearchStoreButton"));
 		SearchStoreButton.click();
 		System.out.println("Verify that each product has the word 'Table' in its title");
@@ -34,7 +43,7 @@ public class AddItemClearItemFromCart2 {
 		int counter = 0;
 		while(ItemDescriptionIterator.hasNext()) 
 		{
-			if (ItemDescriptionIterator.next().getText().contains("Table")) 
+			if (ItemDescriptionIterator.next().getText().contains(excelUtils.getCellData(1,2))) 
 			{
 				counter = counter + 1;
 		    	System.out.println("PASS: Table was found in the title for item number " + counter);
@@ -57,7 +66,7 @@ public class AddItemClearItemFromCart2 {
 		System.out.println("Verify that there is one item displayed in the cart area at the top of the search results page");
 		WebElement ItemsInCart = driver.findElement(parser.getobjectLocator("CartItemCount"));
 		String CartCount = ItemsInCart.getAttribute("textContent");
-		if (CartCount.equals("1")) 
+		if (CartCount.equals(excelUtils.getCellData(1,3))) 
 		{
 			System.out.println("PASS: The cart has one item in it");
 		}
@@ -79,11 +88,10 @@ public class AddItemClearItemFromCart2 {
 		{
 			System.out.println("FAIL: The item selected from the search results is not displayed in the cart. " + ItemDescriptionGoingToCartTextContent + " was expected but " + ItemDescriptionInCartTextContent + " was displayed");
 		}
-		
 		//Remove item from cart
 		WebElement RemoveItemFromCart = driver.findElement(parser.getobjectLocator("RemoveItemFromCart"));
 		RemoveItemFromCart.click();
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		driver.navigate().refresh();
 		System.out.println("Verify item has been removed from the cart");
 		WebElement CartIsEmptyMessage = driver.findElement(parser.getobjectLocator("CartIsEmptyMessage"));
@@ -96,7 +104,5 @@ public class AddItemClearItemFromCart2 {
 			System.out.println("FAIL: The itme has not been removed from the cart");
 		}
 		driver.quit();
-		
-		
 	}
 }
